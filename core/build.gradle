@@ -5,6 +5,8 @@ dependencies {
   api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
   api "com.badlogicgames.gdx:gdx:$gdxVersion"
 
+    implementation 'org.tinylog:tinylog-api:2.6.2'
+    implementation 'org.tinylog:tinylog-impl:2.6.2'
   if(enableGraalNative == 'true') {
     implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
   }
