@@ -1,0 +1,11 @@
+widget.png
+size:256,64
+repeat:none
+background
+bounds:2,2,60,60
+background-2
+bounds:64,2,60,60
+button
+bounds:126,2,60,60
+split:3,3,3,3
+pad:0,0,0,0
