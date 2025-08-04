@@ -49,21 +49,17 @@ public class TransitionManager {
 
     public void update(float delta) {
         // when not any transition to render
-        if (isTransitioning==false) return;
+        if (!isTransitioning) return;
 
-        // when we should render transition
+        // update transition time
         currentTransitionTime += delta;
         float progress = Math.min(currentTransitionTime / transitionDuration, 1.0f);
 
-        // we still render last screen (overlay)
-        currentScreen.render(delta);
+        // render transition (batch sudah di-begin di render method Application Screen)
+        transition.render(spriteBatch, progress);
 
-        // transition process
-        transition.render(spriteBatch,progress);
-
-        // when transition complete
-        if (progress >= transitionDuration) {
-            // reset all flag
+        // check if transition complete
+        if (progress >= 1.0f) {
             finishTransition();
         }
     }
