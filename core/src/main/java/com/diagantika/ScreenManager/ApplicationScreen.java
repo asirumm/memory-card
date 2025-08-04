@@ -77,6 +77,7 @@ public class ApplicationScreen implements ApplicationListener {
         // we still use 1 batch
         stageUI = new Stage(viewport,batch);
 
+        // we directly to target screen
         Gdx.graphics.setWindowedMode(Constant.screenTargetWidth,Constant.screenTargetHeight);
     }
     /**
