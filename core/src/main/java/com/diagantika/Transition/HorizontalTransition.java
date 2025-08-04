@@ -8,6 +8,10 @@ public class HorizontalTransition implements ScreenTransition {
     private TextureRegion textureRegion;
     private Viewport viewport;
 
+    /**
+     * NOTE batch begin and end at ApplicationScreen
+     * they manage the batch for framebuffer
+     */
     @Override
     public void render(SpriteBatch batch, float progress) {
         if (textureRegion==null||viewport==null)return;
@@ -15,11 +19,10 @@ public class HorizontalTransition implements ScreenTransition {
         float screenWidth  =  viewport.getWorldWidth();
         float screenHeight = viewport.getWorldHeight();
 
-        batch.setProjectionMatrix(viewport.getCamera().combined);
-        batch.begin();
+
         float slideX = -screenWidth + (screenWidth * progress);
         batch.draw(textureRegion, slideX, 0, screenWidth, screenHeight);
-        batch.end();
+
     }
 
     @Override

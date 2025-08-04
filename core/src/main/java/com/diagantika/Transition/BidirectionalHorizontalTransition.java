@@ -31,9 +31,6 @@ public class BidirectionalHorizontalTransition implements ScreenTransition{
         float screenWidth = viewport.getWorldWidth();
         float screenHeight = viewport.getWorldHeight();
 
-        batch.setProjectionMatrix(viewport.getCamera().combined);
-        batch.begin();
-
         float slideXLeft = -screenWidth + (screenWidth * progress);
 
         float slideXRight = screenWidth - (screenWidth * progress);
@@ -46,6 +43,5 @@ public class BidirectionalHorizontalTransition implements ScreenTransition{
         // draw right
         batch.draw(texture, slideXRight, 0, screenWidth, screenHeight);
 
-        batch.end();
     }
 }
