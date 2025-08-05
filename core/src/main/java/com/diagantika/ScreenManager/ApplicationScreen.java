@@ -145,19 +145,13 @@ public class ApplicationScreen implements ApplicationListener {
         batch.setProjectionMatrix(screenCamera.combined);
         batch.begin();
 
-        float scaleX = (float) Gdx.graphics.getWidth() / VIRTUAL_WIDTH;
-        float scaleY = (float) Gdx.graphics.getHeight() / VIRTUAL_HEIGHT;
-        float scale = Math.min(scaleX, scaleY);
 
-        float scaledWidth = VIRTUAL_WIDTH * scale;
-        float scaledHeight = VIRTUAL_HEIGHT * scale;
-        float offsetX = (Gdx.graphics.getWidth() - scaledWidth) / 2f;
-        float offsetY = (Gdx.graphics.getHeight() - scaledHeight) / 2f;
-
-
+        // ukuran langsung ke target game yakni 1280
         batch.draw(frameBuffer.getColorBufferTexture(),
-                offsetX, offsetY + scaledHeight,
-                scaledWidth, -scaledHeight, 0, 0, 1, 1);
+                0,0,
+                Constant.screenTargetWidth , Constant.screenTargetHeight,
+                // ini agar tidak flip
+                0, 1, 1, 0);
 
         batch.end();
 
