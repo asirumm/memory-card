@@ -47,16 +47,28 @@ public class Main extends ApplicationScreen {
     public void create() {
         super.create();
 
-        transition = new HashMap<>();
-        transition.put(Transition.HORIZONTAL_TRANSITION,new HorizontalTransition());
-        transition.put(Transition.BIDERECTIONAL_TRANSITION,new BidirectionalHorizontalTransition());
+//        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("widget.atlas"));
 
-        loadSkin("Grand9KPixel.ttf","widget.atlas","widget.json");
-        setFirstScreen(new SplashScree());
+        transition = new HashMap<>();
+        HorizontalTransition ht = new HorizontalTransition();
+        BidirectionalHorizontalTransition bt = new BidirectionalHorizontalTransition();
+//        bt.setTextureTransition(atlas.findRegion("button"));
+
+
+        // DONT FORGET TO SET TEXTURE
+        transition.put(Transition.HORIZONTAL_TRANSITION,ht);
+        transition.put(Transition.BIDERECTIONAL_TRANSITION,bt);
+
+//        loadSkin("Grand9KPixel.ttf","widget.atlas","widget.json");
+//        setFirstScreen(new SplashScree());
     }
 
     public SpriteBatch getSpriteBath(){
         return batch;
+    }
+
+    public HashMap<Transition, ScreenTransition> getTransition() {
+        return transition;
     }
 
     public Viewport getViewport(){
